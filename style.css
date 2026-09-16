@@ -1,0 +1,1416 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f2f2f7;
+  color: #1c1c1e;
+}
+
+main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 25px 18px 60px;
+}
+
+.verktoy {
+  background: white;
+  border-radius: 22px;
+  padding: 25px 20px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+
+/* --------------------
+   METRONOM
+-------------------- */
+
+.bpm-visning {
+  margin: 25px 0;
+}
+
+#bpm {
+  display: block;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.eining {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #777;
+}
+
+.knappar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 15px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#minus,
+#pluss {
+  width: 65px;
+  font-size: 26px;
+}
+
+#start {
+  min-width: 120px;
+}
+
+
+/* --------------------
+   TUNER
+-------------------- */
+
+.kammertone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+.kammertone span {
+  width: 100%;
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  color: #777;
+}
+
+.kammertone-knapp {
+  padding: 10px 16px;
+  font-size: 15px;
+}
+
+.kammertone-knapp.aktiv {
+  background: #1c1c1e;
+  color: white;
+}
+
+
+/* Stor tonevisning */
+
+.tuner-display {
+  margin: 20px auto 25px;
+  padding: 30px 15px;
+
+  border: 4px solid #d1d1d6;
+  border-radius: 22px;
+
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+
+.tone {
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cent {
+  margin-top: 15px;
+
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.retning {
+  margin-top: 10px;
+
+  min-height: 24px;
+
+  font-size: 17px;
+  color: #666;
+}
+
+
+/* Når tonen er ustemt */
+
+.tuner-display.feil {
+  border-color: #ff3b30;
+  background: #fff2f1;
+}
+
+.tuner-display.feil .cent {
+  color: #d70015;
+}
+
+
+/* Når tonen er stemt */
+
+.tuner-display.riktig {
+  border-color: #34c759;
+  background: #effff2;
+}
+
+.tuner-display.riktig .cent {
+  color: #248a3d;
+}
+
+
+/* Start tuner */
+
+.tuner-knapp {
+  width: 100%;
+
+  padding: 17px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  background: #1c1c1e;
+  color: white;
+}/* =====================================================
+   SHRUTI BOX
+===================================================== */
+
+.forklaring {
+  margin-top: -10px;
+  margin-bottom: 25px;
+  color: #777;
+  font-size: 15px;
+}
+
+
+/* Valområde */
+
+.shruti-val {
+  margin-bottom: 24px;
+}
+
+.shruti-val label,
+.val-tittel {
+  display: block;
+  margin-bottom: 9px;
+
+  font-size: 14px;
+  color: #777;
+}
+
+
+/* Toneveljar */
+
+#shrutiTone {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d1d1d6;
+  border-radius: 14px;
+
+  background: #f2f2f7;
+
+  font-size: 18px;
+
+  text-align: center;
+}
+
+
+/* Grunntone / kvint */
+
+.shruti-knappar {
+  display: flex;
+  gap: 8px;
+}
+
+.shruti-modus {
+  flex: 1;
+
+  padding: 13px 10px;
+
+  font-size: 15px;
+}
+
+.shruti-modus.aktiv {
+  background: #1c1c1e;
+  color: white;
+}
+
+
+/* Tonevisning */
+
+.shruti-display {
+  margin: 25px 0;
+
+  padding: 25px 15px;
+
+  background: #f2f2f7;
+
+  border-radius: 18px;
+}
+
+.shruti-tone {
+  font-size: 52px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.shruti-info {
+  margin-top: 10px;
+
+  color: #777;
+
+  font-size: 15px;
+}
+
+
+/* Startknapp */
+
+.shruti-start {
+  width: 100%;
+
+  padding: 17px;
+
+  background: #1c1c1e;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+}/* =====================================================
+   FINGERSETTING
+===================================================== */
+
+.fingersetting-val {
+  margin-bottom: 22px;
+}
+
+.fingersetting-val label,
+.fingersetting-val .val-tittel {
+  display: block;
+  margin-bottom: 9px;
+
+  font-size: 14px;
+  color: #777;
+}
+
+
+/* Instrument-, tone- og akkordveljar */
+
+#instrument,
+#fingersettingTone,
+#fingersettingAkkord {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d1d1d6;
+  border-radius: 14px;
+
+  background: #f2f2f7;
+
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* Tone / akkord */
+
+.fingersetting-knappar {
+  display: flex;
+  gap: 8px;
+}
+
+.fingersetting-modus {
+  flex: 1;
+
+  padding: 13px 10px;
+
+  font-size: 15px;
+}
+
+.fingersetting-modus.aktiv {
+  background: #1c1c1e;
+  color: white;
+}
+
+
+/* Skjul element */
+
+.skjult {
+  display: none;
+}
+
+
+/* Området der instrumentet blir teikna */
+
+.fingersetting-display {
+  margin-top: 25px;
+
+  padding: 20px 15px;
+
+  background: #f2f2f7;
+
+  border-radius: 18px;
+}
+
+
+/* Overskrift, t.d. Gitar – C */
+
+.fingersetting-overskrift {
+  margin-bottom: 20px;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* Sjølve diagrammet */
+
+.instrument-diagram {
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: auto;
+}
+
+
+/* =====================================================
+   PIANO
+===================================================== */
+
+.piano {
+  display: flex;
+
+  height: 190px;
+
+  position: relative;
+
+  margin: 10px auto;
+}
+
+.piano-tangent {
+  position: relative;
+
+  box-sizing: border-box;
+
+  border: 1px solid #555;
+}
+
+.piano-kvit {
+  width: 42px;
+  height: 180px;
+
+  background: white;
+
+  border-radius: 0 0 5px 5px;
+}
+
+.piano-svart {
+  width: 27px;
+  height: 110px;
+
+  margin-left: -13.5px;
+  margin-right: -13.5px;
+
+  z-index: 2;
+
+  background: #1c1c1e;
+
+  border-radius: 0 0 4px 4px;
+}
+
+
+/* Markert tangent */
+
+.piano-tangent.markert {
+  background: #34c759;
+}
+
+
+/* =====================================================
+   GITAR / BASS
+===================================================== */
+
+.gripebrett {
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 10px;
+}
+
+.gripebrett-rad {
+  display: flex;
+
+  height: 38px;
+}
+
+.gripebrett-celle {
+  flex: 1;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-left: 1px solid #888;
+  border-bottom: 1px solid #888;
+
+  font-size: 12px;
+}
+
+.gripebrett-celle:first-child {
+  border-left: 3px solid #333;
+}
+
+
+/* Fingerpunkt */
+
+.fingerpunkt {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1c1c1e;
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   BLÅSEINSTRUMENT
+===================================================== */
+
+.blase-diagram {
+  width: 180px;
+
+  margin: 0 auto;
+}
+
+
+/* Hol / klaff */
+
+.klaff {
+  width: 34px;
+  height: 34px;
+
+  margin: 8px auto;
+
+  border: 3px solid #333;
+  border-radius: 50%;
+
+  background: white;
+}
+
+
+/* Klaff som skal trykkast */
+
+.klaff.trykt {
+  background: #1c1c1e;
+}
+
+
+/* =====================================================
+   KORNETT / BARITON
+===================================================== */
+
+.ventilar {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin: 30px 0;
+}
+
+.ventil {
+  width: 55px;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 3px solid #333;
+  border-radius: 12px;
+
+  background: white;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ventil.trykt {
+  background: #1c1c1e;
+  color: white;
+}
+/* =====================================================
+   PIANO V2
+===================================================== */
+
+.akkord-type-label {
+  margin-top: 16px;
+}
+
+
+#akkordGrunntone,
+#akkordType {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d1d1d6;
+  border-radius: 14px;
+
+  background: #f2f2f7;
+
+  font-size: 18px;
+
+  text-align: center;
+}
+
+
+.piano-ny {
+  max-width: 100%;
+
+  overflow-x: auto;
+
+  padding: 10px 4px 20px;
+}
+
+
+.piano-note-namn {
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 25px;
+  height: 25px;
+
+  padding: 0 3px;
+
+  border-radius: 50%;
+
+  background: #1c1c1e;
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  z-index: 5;
+}
+
+
+.piano-svart .piano-note-namn {
+  bottom: 8px;
+
+  background: white;
+  color: #1c1c1e;
+}
+/* =====================================================
+   PIANO V3 – STØRRE OG FULLT SYNLIG
+===================================================== */
+
+.instrument-diagram {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 10px 0 25px;
+}
+
+
+/* Område rundt pianoet */
+
+.piano-wrapper {
+  width: max-content;
+  min-width: 100%;
+  overflow: visible;
+  padding: 10px 18px 25px;
+  box-sizing: border-box;
+}
+
+
+/* Heile klaviaturet */
+
+.piano.piano-stor {
+  display: flex;
+  align-items: flex-start;
+
+  width: max-content;
+  height: 240px;
+
+  position: relative;
+
+  margin: 0 auto;
+  overflow: visible;
+}
+
+
+/* Kvite tangentar */
+
+.piano-stor .piano-kvit {
+  flex: 0 0 58px;
+
+  width: 58px;
+  height: 230px;
+
+  position: relative;
+
+  background: white;
+
+  border: 1px solid #555;
+  border-radius: 0 0 6px 6px;
+
+  box-sizing: border-box;
+
+  z-index: 1;
+}
+
+
+/* Svarte tangentar */
+
+.piano-stor .piano-svart {
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 145px;
+
+  position: relative;
+
+  margin-left: -18px;
+  margin-right: -18px;
+
+  background: #1c1c1e;
+
+  border: 1px solid #111;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+
+  z-index: 3;
+}
+
+
+/* Markerte kvite tangentar */
+
+.piano-stor .piano-kvit.markert {
+  background: #34c759;
+}
+
+
+/* Markerte svarte tangentar */
+
+.piano-stor .piano-svart.markert {
+  background: #34c759;
+}
+
+
+/* Tonenamn */
+
+.piano-stor .piano-note-namn {
+  position: absolute;
+
+  left: 50%;
+  bottom: 14px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30px;
+  height: 30px;
+
+  padding: 0 4px;
+
+  border-radius: 15px;
+
+  background: #1c1c1e;
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+
+  z-index: 10;
+}
+
+
+/* Tonenamn på svarte tangentar */
+
+.piano-stor .piano-svart .piano-note-namn {
+  bottom: 10px;
+
+  background: white;
+  color: #1c1c1e;
+}
+
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+  .piano-stor .piano-kvit {
+    flex-basis: 52px;
+    width: 52px;
+    height: 220px;
+  }
+
+  .piano-stor .piano-svart {
+    flex-basis: 32px;
+    width: 32px;
+    height: 138px;
+
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+}
+/* =====================================================
+   GITAR V1
+===================================================== */
+
+.gitar-diagram {
+  width: 100%;
+  max-width: 390px;
+
+  margin: 0 auto;
+
+  padding: 10px 20px 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* X og open streng */
+
+.gitar-topp {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, 1fr);
+
+  margin-bottom: 7px;
+
+  padding: 0 2px;
+}
+
+
+.gitar-symbol {
+  text-align: center;
+
+  font-size: 23px;
+  font-weight: 600;
+
+  height: 30px;
+}
+
+
+/* =====================================================
+   GRIPEBRETT
+===================================================== */
+
+.gitar-brett {
+  position: relative;
+
+  width: calc(100% - 20px);
+  height: 300px;
+
+  margin: 0 auto;
+
+  overflow: visible;
+}
+
+
+/* Vertikale strenger */
+
+.gitar-streng {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: #555;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+
+/* Horisontale bandstrekar */
+
+.gitar-bandlinje {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background: #777;
+
+  transform: translateY(-50%);
+
+  z-index: 1;
+}
+
+
+/* Sadel */
+
+.gitar-bandlinje.gitar-sadel {
+  height: 7px;
+
+  background: #1c1c1e;
+}
+
+
+/* =====================================================
+   FINGER
+===================================================== */
+
+.gitar-finger {
+  position: absolute;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #34c759;
+  color: #111;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  z-index: 10;
+}
+
+
+/* =====================================================
+   BARRÉ
+===================================================== */
+
+.gitar-barre {
+  position: absolute;
+
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  transform:
+    translateY(-50%);
+
+  padding-left: 12px;
+
+  border-radius: 20px;
+
+  background: #34c759;
+  color: #111;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  box-sizing: border-box;
+
+  z-index: 8;
+}
+
+
+/* =====================================================
+   BANDNUMMER
+===================================================== */
+
+.gitar-bandnummer {
+  position: absolute;
+
+  left: -43px;
+  top: 10%;
+
+  transform:
+    translateY(-50%);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #666;
+}
+
+
+/* =====================================================
+   STRENGNAMN
+===================================================== */
+
+.gitar-stemming {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, 1fr);
+
+  margin-top: 10px;
+
+  padding: 0 2px;
+}
+
+
+.gitar-stemming div {
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #666;
+}
+
+
+/* Manglande grep */
+
+.gitar-ikkje-lagt-inn {
+  padding: 40px 10px;
+
+  text-align: center;
+
+  color: #777;
+}
+
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+  .gitar-diagram {
+    max-width: 340px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  .gitar-brett {
+    height: 270px;
+  }
+
+
+  .gitar-finger {
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+
+  .gitar-barre {
+    height: 34px;
+  }
+}
+
+/* GITAR – TONEVISNING 0.–12. BAND */
+.gitar-tone-diagram { width:100%; overflow-x:auto; padding:8px 0 4px; box-sizing:border-box; }
+.gitar-tone-bandrad, .gitar-tone-strengrad { display:grid; grid-template-columns:42px repeat(13,minmax(42px,1fr)); min-width:650px; }
+.gitar-tone-bandnummer { text-align:center; font-size:12px; font-weight:800; color:#666; padding-bottom:8px; }
+.gitar-tone-strengnamn { display:flex; align-items:center; justify-content:center; min-height:46px; font-size:14px; font-weight:800; color:#555; }
+.gitar-tone-celle { position:relative; min-height:46px; border-left:1px solid #8a8a8a; box-sizing:border-box; }
+.gitar-tone-celle:last-child { border-right:1px solid #8a8a8a; }
+.gitar-tone-celle:nth-child(2) { border-right:4px solid #222; border-left:none; }
+.gitar-tone-strenglinje { position:absolute; left:0; right:0; top:50%; height:2px; background:#666; transform:translateY(-50%); }
+.gitar-tone-prikk { position:absolute; left:50%; top:50%; width:30px; height:30px; border-radius:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; background:#34c759; color:#111; font-size:11px; font-weight:900; z-index:3; box-shadow:0 0 0 2px #fff; }
+.gitar-tone-forklaring { margin-top:12px; text-align:center; color:#666; font-size:13px; }
+@media (max-width:600px) {
+  .gitar-tone-bandrad, .gitar-tone-strengrad { grid-template-columns:38px repeat(13,42px); min-width:584px; }
+  .gitar-tone-strengnamn, .gitar-tone-celle { min-height:44px; }
+  .gitar-tone-prikk { width:28px; height:28px; font-size:10px; }
+}
+
+
+/* =====================================================
+   BASS – TONEVISNING 0.–12. BAND
+===================================================== */
+.bass-tone-diagram { width:100%; overflow-x:auto; padding:8px 0 4px; box-sizing:border-box; }
+.bass-tone-bandrad, .bass-tone-strengrad { display:grid; grid-template-columns:42px repeat(13,minmax(42px,1fr)); min-width:650px; }
+.bass-tone-bandnummer { text-align:center; font-size:12px; font-weight:800; color:#666; padding-bottom:8px; }
+.bass-tone-strengnamn { display:flex; align-items:center; justify-content:center; min-height:52px; font-size:14px; font-weight:800; color:#555; }
+.bass-tone-celle { position:relative; min-height:52px; border-left:1px solid #8a8a8a; box-sizing:border-box; }
+.bass-tone-celle:last-child { border-right:1px solid #8a8a8a; }
+.bass-tone-celle:nth-child(2) { border-right:4px solid #222; border-left:none; }
+.bass-tone-strenglinje { position:absolute; left:0; right:0; top:50%; height:3px; background:#666; transform:translateY(-50%); }
+.bass-tone-prikk { position:absolute; left:50%; top:50%; width:32px; height:32px; border-radius:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; background:#34c759; color:#111; font-size:11px; font-weight:900; z-index:3; box-shadow:0 0 0 2px #fff; }
+.bass-tone-forklaring { margin-top:12px; text-align:center; color:#666; font-size:13px; }
+@media (max-width:600px) {
+  .bass-tone-bandrad, .bass-tone-strengrad { grid-template-columns:38px repeat(13,42px); min-width:584px; }
+  .bass-tone-strengnamn, .bass-tone-celle { min-height:50px; }
+  .bass-tone-prikk { width:30px; height:30px; font-size:10px; }
+}
+
+
+/* =====================================================
+   TREBLÅS V1
+===================================================== */
+.treblas-wrap {
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  padding:8px 4px 18px;
+  box-sizing:border-box;
+}
+.treblas-info {
+  text-align:center;
+  font-size:16px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+.treblas-kropp {
+  position:relative;
+  max-width:300px;
+  margin:0 auto;
+  padding:16px 18px;
+  border:2px solid #aaa;
+  border-radius:28px;
+}
+.treblas-kropp::before {
+  content:"";
+  position:absolute;
+  left:50%;
+  top:12px;
+  bottom:12px;
+  width:5px;
+  transform:translateX(-50%);
+  background:#d0d0d0;
+  border-radius:4px;
+  z-index:0;
+}
+.treblas-seksjon {
+  position:relative;
+  z-index:1;
+  margin:10px 0 18px;
+}
+.treblas-label {
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+  color:#666;
+  margin-bottom:8px;
+}
+.treblas-knappar {
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
+.treblas-key {
+  width:42px;
+  height:42px;
+  border:3px solid #666;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:14px;
+  box-sizing:border-box;
+}
+.treblas-key.aktiv {
+  background:#34c759;
+  border-color:#238b3a;
+  color:#111;
+}
+.treblas-forklaring {
+  margin-top:14px;
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  line-height:1.4;
+}
+@media (max-width:600px) {
+  .treblas-kropp { max-width:270px; padding-left:12px; padding-right:12px; }
+  .treblas-key { width:40px; height:40px; }
+}
+
+
+/* =====================================================
+   TREBLÅS V2 – GREPTABELLAR
+===================================================== */
+.treblas-v2-wrap {
+  width:100%;
+  max-width:620px;
+  margin:0 auto;
+  padding:8px 0 20px;
+  box-sizing:border-box;
+}
+.treblas-v2-info {
+  text-align:center;
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+.treblas-v2-merknad {
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  line-height:1.4;
+  margin:0 auto 14px;
+  max-width:480px;
+}
+.treblas-v2-bilde-wrap {
+  width:100%;
+  overflow:auto;
+  border:1px solid #ddd;
+  border-radius:14px;
+  background:white;
+  padding:8px;
+  box-sizing:border-box;
+}
+.treblas-v2-bilde {
+  display:block;
+  width:100%;
+  height:auto;
+  min-width:340px;
+  margin:0 auto;
+}
+.treblas-v2-forklaring {
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#f3f3f3;
+  text-align:center;
+  font-size:13px;
+  line-height:1.45;
+}
+@media (max-width:600px) {
+  .treblas-v2-bilde-wrap {
+    padding:4px;
+    border-radius:10px;
+  }
+  .treblas-v2-bilde {
+    min-width:500px;
+  }
+}
+
+
+/* =====================================================
+   TREBLÅS V3 – VISUELT GREPDIAGRAM
+===================================================== */
+.tb-wrap{width:100%;max-width:420px;margin:0 auto;padding:4px 0 20px;box-sizing:border-box}
+.tb-topp{text-align:center;margin-bottom:12px}
+.tb-instrument{font-size:15px;font-weight:700;color:#555}
+.tb-tone{font-size:28px;font-weight:900;margin-top:2px}
+.tb-sub{font-size:12px;color:#777;margin-top:1px}
+.tb-diagram{position:relative;width:230px;height:430px;margin:0 auto;background:#fafafa;border:1px solid #ddd;border-radius:28px}
+.tb-kropp{position:absolute;left:50%;top:20px;bottom:20px;width:12px;transform:translateX(-50%);background:#b8b8b8;border-radius:8px}
+.tb-hovud{position:absolute;left:50%;top:46px;width:86px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px}
+.tb-key{width:34px;height:34px;border:3px solid #555;background:#fff;border-radius:50%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#555;z-index:3}
+.tb-key.aktiv{background:#e53935;border-color:#b71c1c;color:#fff}
+.tb-handlabel{font-size:9px;font-weight:800;color:#888;letter-spacing:.4px;background:#fafafa;padding:1px 5px;z-index:2}
+.tb-skilje{height:12px;width:62px;border-top:1px solid #ccc}
+.tb-side{position:absolute;display:flex;flex-direction:column;gap:14px;z-index:4}
+.tb-side-venstre{left:28px;top:62px}
+.tb-side-hogre{right:28px;top:112px}
+.tb-side .tb-key{width:27px;height:42px;border-radius:12px}
+.tb-forklaring{text-align:center;margin-top:13px;font-size:13px;color:#666}
+.tb-demo{display:inline-block;width:17px;height:17px;border:2px solid #555;background:#fff;border-radius:50%;vertical-align:-4px}
+.tb-demo.aktiv{background:#e53935;border-color:#b71c1c}
+.tb-diagram.floyte{height:410px}
+.tb-diagram.saksofon{height:430px}
+.tb-diagram.klarinett{height:445px}
+@media(max-width:600px){
+  .tb-diagram{width:220px}
+  .tb-tone{font-size:26px}
+}
+
+
+/* =====================================================
+   MESSING – VERTIKALE VENTILKNAPPAR
+   3 øvst, 2 i midten, 1 nedst
+   Raud = trykk inn, kvit = open
+===================================================== */
+
+.messing-diagram {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 26px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.messing-ventilrad {
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 18px;
+  z-index: 3;
+}
+
+.messing-ventil {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messing-ventilknapp {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #555;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  box-sizing: border-box;
+  transform: none !important;
+}
+
+.messing-ventil.aktiv .messing-ventilknapp {
+  background: #e53935;
+  border-color: #b71c1c;
+  color: #fff;
+  transform: none !important;
+}
+
+/* Skjul den gamle dekorative ventilstamma og ventilhuset.
+   Vi vil berre ha dei tre tydelege knappane. */
+.messing-ventilstamme,
+.messing-ventilhus,
+.messing-ror {
+  display: none;
+}
+
+.messing-greptekst {
+  text-align: center;
+  margin-top: 13px;
+  font-size: 15px;
+}
+
+.messing-forklaring {
+  text-align: center;
+  margin-top: 11px;
+  font-size: 13px;
+  color: #666;
+}
+
+.messing-demo {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #555;
+  background: #fff;
+  border-radius: 50%;
+  vertical-align: -4px;
+}
+
+.messing-demo.aktiv {
+  background: #e53935;
+  border-color: #b71c1c;
+}
+
+
+/* =====================================================
+   KORNETT – ENKEL VERTIKAL VENTILVISNING
+   3 øvst, 2 midten, 1 nedst
+===================================================== */
+
+.kornett-ventilrad {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  z-index: 20;
+}
+
+.kornett-ventil {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kornett-ventilknapp {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #555;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.kornett-ventil.aktiv .kornett-ventilknapp {
+  background: #e53935;
+  border-color: #b71c1c;
+  color: #fff;
+}
+
+/* Gamal dekorasjon skal ikkje ligge oppå kornettknappane */
+.kornett-ventil .messing-ventilstamme,
+.kornett-ventil .messing-ventilhus {
+  display: none;
+}
+.app-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 32px;
+}

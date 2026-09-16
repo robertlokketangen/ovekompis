@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="nn">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Musikkverktøy</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+    <header class="app-header">
+  <h1>Øvekompis</h1>
+</header>
+
+  <!-- =================================================
+       METRONOM
+  ================================================== -->
+
+  <section class="verktoy">
+
+    <h1>Metronom</h1>
+
+    <div class="bpm-visning">
+      <span id="bpm">120</span>
+      <span class="eining">BPM</span>
+    </div>
+
+    <div class="knappar">
+
+      <button id="minus">−</button>
+
+      <button id="start">
+        Start
+      </button>
+
+      <button id="pluss">+</button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =================================================
+       TUNER
+  ================================================== -->
+
+  <section class="verktoy">
+
+    <h1>Tuner</h1>
+
+    <div class="kammertone">
+
+      <span>Kammertone</span>
+
+      <button
+        id="a440"
+        class="kammertone-knapp aktiv"
+      >
+        440 Hz
+      </button>
+
+      <button
+        id="a442"
+        class="kammertone-knapp"
+      >
+        442 Hz
+      </button>
+
+    </div>
+
+
+    <div
+      id="tunerDisplay"
+      class="tuner-display"
+    >
+
+      <div id="tone" class="tone">
+        –
+      </div>
+
+      <div id="cent" class="cent">
+        0 cent
+      </div>
+
+      <div id="retning" class="retning">
+        Start tuneren
+      </div>
+
+    </div>
+
+
+    <button
+      id="startTuner"
+      class="tuner-knapp"
+    >
+      Start tuner
+    </button>
+
+  </section>
+
+
+  <!-- =================================================
+       SHRUTI BOX
+  ================================================== -->
+
+  <section class="verktoy">
+
+    <h1>Shruti Box</h1>
+
+    <p class="forklaring">
+      Vel grunntone og drone
+    </p>
+
+
+    <div class="shruti-val">
+
+      <label for="shrutiTone">
+        Grunntone
+      </label>
+
+      <select id="shrutiTone">
+
+        <option value="C">C</option>
+        <option value="Cs">C♯ / D♭</option>
+        <option value="D">D</option>
+        <option value="Ds">D♯ / E♭</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="Fs">F♯ / G♭</option>
+        <option value="G">G</option>
+        <option value="Gs">G♯ / A♭</option>
+        <option value="A">A</option>
+        <option value="As">A♯ / B♭</option>
+        <option value="B">H / B</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="shruti-val">
+
+      <span class="val-tittel">
+        Tonar
+      </span>
+
+      <div class="shruti-knappar">
+
+        <button
+          id="berreGrunntone"
+          class="shruti-modus aktiv"
+        >
+          Grunntone
+        </button>
+
+        <button
+          id="medKvint"
+          class="shruti-modus"
+        >
+          Grunntone + kvint
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="shruti-display">
+
+      <div
+        id="shrutiVisning"
+        class="shruti-tone"
+      >
+        C
+      </div>
+
+      <div
+        id="shrutiInfo"
+        class="shruti-info"
+      >
+        Grunntone
+      </div>
+
+    </div>
+
+
+    <button
+      id="startShruti"
+      class="shruti-start"
+    >
+      Start drone
+    </button>
+
+  </section>
+
+
+  <!-- =================================================
+       FINGERSETTING
+  ================================================== -->
+
+  <section class="verktoy">
+
+    <h1>Fingersetting</h1>
+
+    <p class="forklaring">
+      Vel instrument og tone eller akkord
+    </p>
+
+
+    <!-- INSTRUMENT -->
+
+    <div class="fingersetting-val">
+
+      <label for="instrument">
+        Instrument
+      </label>
+
+      <select id="instrument">
+
+        <option value="gitar">
+          Gitar
+        </option>
+
+        <option value="bass">
+          Bass
+        </option>
+
+        <option value="piano">
+          Piano
+        </option>
+
+        <option value="klarinett">
+          B♭-klarinett
+        </option>
+
+        <option value="floyte">
+          Fløyte
+        </option>
+
+        <option value="altsaksofon">
+          Altsaksofon
+        </option>
+
+        <option value="kornett">
+          Kornett
+        </option>
+
+        <option value="bariton">
+          Bariton
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- TONE / AKKORD -->
+
+    <div class="fingersetting-val">
+
+      <span class="val-tittel">
+        Vel type
+      </span>
+
+      <div class="fingersetting-knappar">
+
+        <button
+          id="toneModus"
+          class="fingersetting-modus aktiv"
+        >
+          Tone
+        </button>
+
+        <button
+          id="akkordModus"
+          class="fingersetting-modus"
+        >
+          Akkord
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TONE -->
+
+    <div
+      id="toneValOmrade"
+      class="fingersetting-val"
+    >
+
+      <label for="fingersettingTone">
+        Tone
+      </label>
+
+      <select id="fingersettingTone">
+
+        <option value="C">C</option>
+        <option value="Cs">C♯ / D♭</option>
+        <option value="D">D</option>
+        <option value="Ds">D♯ / E♭</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="Fs">F♯ / G♭</option>
+        <option value="G">G</option>
+        <option value="Gs">G♯ / A♭</option>
+        <option value="A">A</option>
+        <option value="As">A♯ / B♭</option>
+        <option value="B">H / B</option>
+
+      </select>
+
+    </div>
+
+
+    <!-- AKKORD -->
+
+    <div
+      id="akkordValOmrade"
+      class="fingersetting-val skjult"
+    >
+
+      <label for="akkordGrunntone">
+        Grunntone
+      </label>
+
+      <select id="akkordGrunntone">
+
+        <option value="C">C</option>
+        <option value="Cs">C♯ / D♭</option>
+        <option value="D">D</option>
+        <option value="Ds">D♯ / E♭</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="Fs">F♯ / G♭</option>
+        <option value="G">G</option>
+        <option value="Gs">G♯ / A♭</option>
+        <option value="A">A</option>
+        <option value="As">A♯ / B♭</option>
+        <option value="B">H / B</option>
+
+      </select>
+
+
+      <label
+        for="akkordType"
+        class="akkord-type-label"
+      >
+        Akkordtype
+      </label>
+
+      <select id="akkordType">
+
+        <option value="dur">
+          Dur
+        </option>
+
+        <option value="moll">
+          Moll
+        </option>
+
+        <option value="7">
+          7
+        </option>
+
+        <option value="maj7">
+          maj7
+        </option>
+
+        <option value="m7">
+          m7
+        </option>
+
+        <option value="6">
+          6
+        </option>
+
+        <option value="m6">
+          m6
+        </option>
+
+        <option value="sus2">
+          sus2
+        </option>
+
+        <option value="sus4">
+          sus4
+        </option>
+
+        <option value="dim">
+          dim
+        </option>
+
+        <option value="aug">
+          aug
+        </option>
+
+        <option value="maj9">
+          maj9
+        </option>
+
+        <option value="9">
+          9
+        </option>
+
+        <option value="m9">
+          m9
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- DIAGRAM -->
+
+    <div
+      id="fingersettingDisplay"
+      class="fingersetting-display"
+    >
+
+      <div
+        id="fingersettingOverskrift"
+        class="fingersetting-overskrift"
+      >
+        Gitar – C
+      </div>
+
+      <div
+        id="instrumentDiagram"
+        class="instrument-diagram"
+      >
+        Diagram kjem her
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
