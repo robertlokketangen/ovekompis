@@ -1217,9 +1217,9 @@ const instrumentNamn = {
   gitar: "Gitar",
   bass: "Bass",
   piano: "Piano",
-  klarinett: "B♭-klarinett",
-  floyte: "Fløyte",
-  altsaksofon: "Altsaksofon",
+
+
+
   kornett: "Kornett",
   bariton: "Bariton"
 };
@@ -2523,18 +2523,16 @@ function oppdaterBass() {
 
 
 // =====================================================
-// TREBLÅS V3 – 1. OKTAV, SKRIVEN TONE
-// Visuell modell inspirert av greptabellane frå Skolekorpsene.
-// Raud = trykt/dekt klaff. Kvit = open.
+// TREBLÅS V4 – 1. OKTAV, SKRIVEN TONE
+// Klarinett har eiga bokliknande illustrasjon.
+// Fløyte og altsaksofon brukar den eksisterande modellen.
 // =====================================================
 
 const treblasInstrument = ["klarinett", "saksofon", "altsaks", "altsaksofon", "floyte"];
 
-// Pedagogisk 1.-oktavsett C–H. Toneverdiane er SKRIVNE tonar.
-// Nøklane svarar til dei synlege knappane/klaffane i diagrammet.
 const treblasGrep = {
   klarinett: {
-    C:  ["th","l1","l2","l3","r1","r2","r3","rp"],
+    C:  ["th","l1","l2","l3","r1","r2","r3","lpC"],
     Cs: ["th","l1","l2","l3","r1","r2","r3"],
     D:  ["th","l1","l2","l3","r1","r2"],
     Ds: ["th","l1","l2","l3","r1","r2","sideR"],
@@ -2548,157 +2546,90 @@ const treblasGrep = {
     B:  ["th"]
   },
   saksofon: {
-    C:  ["l2"],
-    Cs: [],
-    D:  ["oct","l1","l2","l3","r1","r2","r3"],
-    Ds: ["oct","l1","l2","l3","r1","r2","r3","sideR"],
-    E:  ["oct","l1","l2","l3","r1","r2"],
-    F:  ["oct","l1","l2","l3","r1"],
-    Fs: ["oct","l1","l2","l3","r2"],
-    G:  ["oct","l1","l2","l3"],
-    Gs: ["oct","l1","l2","l3","sideL"],
-    A:  ["oct","l1","l2"],
-    As: ["oct","l1","l2","sideR"],
-    B:  ["oct","l1"]
+    C:["l2"], Cs:[], D:["oct","l1","l2","l3","r1","r2","r3"],
+    Ds:["oct","l1","l2","l3","r1","r2","r3","sideR"],
+    E:["oct","l1","l2","l3","r1","r2"], F:["oct","l1","l2","l3","r1"],
+    Fs:["oct","l1","l2","l3","r2"], G:["oct","l1","l2","l3"],
+    Gs:["oct","l1","l2","l3","sideL"], A:["oct","l1","l2"],
+    As:["oct","l1","l2","sideR"], B:["oct","l1"]
   },
   floyte: {
-    C:  ["th","r3"],
-    Cs: [],
-    D:  ["th","l1","l2","l3","r1","r2","r3"],
-    Ds: ["th","l1","l2","l3","r1","r2","r3","sideR"],
-    E:  ["th","l1","l2","l3","r1","r2"],
-    F:  ["th","l1","l2","l3","r1"],
-    Fs: ["th","l1","l2","l3","r2"],
-    G:  ["th","l1","l2","l3"],
-    Gs: ["th","l1","l2","l3","sideL"],
-    A:  ["th","l1","l2"],
-    As: ["th","l1","sideR"],
-    B:  ["th","l1"]
+    C:["th","r3"], Cs:[], D:["th","l1","l2","l3","r1","r2","r3"],
+    Ds:["th","l1","l2","l3","r1","r2","r3","sideR"],
+    E:["th","l1","l2","l3","r1","r2"], F:["th","l1","l2","l3","r1"],
+    Fs:["th","l1","l2","l3","r2"], G:["th","l1","l2","l3"],
+    Gs:["th","l1","l2","l3","sideL"], A:["th","l1","l2"],
+    As:["th","l1","sideR"], B:["th","l1"]
   }
 };
 
-function treblasKnapp(id, label, aktive) {
-  const k = document.createElement("div");
-  k.className = "tb-key tb-" + id + (aktive.includes(id) ? " aktiv" : "");
-  k.textContent = label || "";
+function treblasKnapp(id,label,aktive){
+  const k=document.createElement("div");
+  k.className="tb-key tb-"+id+(aktive.includes(id)?" aktiv":"");
+  k.textContent=label||""; return k;
+}
+
+function klarinettKlaff(id, klasse, aktive) {
+  const k=document.createElement("span");
+  k.className="kl-key "+klasse+(aktive.includes(id)?" aktiv":"");
+  k.setAttribute("aria-label", id+(aktive.includes(id)?" trykt":" open"));
   return k;
 }
 
-function lagTreblasDiagram(instrument, valdTone) {
-  instrumentDiagram.innerHTML = "";
-
-  const aktive = treblasGrep[instrument][valdTone] || [];
-  const tone = toneNamn[toneTilTal[valdTone]];
-  const namn = {
-    klarinett: "B♭-klarinett",
-    saksofon: "Altsaksofon i E♭",
-    floyte: "Fløyte"
-  };
-
-  const wrap = document.createElement("div");
-  wrap.className = "tb-wrap";
-
-  const topp = document.createElement("div");
-  topp.className = "tb-topp";
-  topp.innerHTML =
-    "<div class='tb-instrument'>" + namn[instrument] + "</div>" +
-    "<div class='tb-tone'>" + tone + " – 1. oktav</div>" +
-    "<div class='tb-sub'>skriven tone</div>";
+function lagKlarinettDiagram(valdTone) {
+  instrumentDiagram.innerHTML="";
+  const aktive=treblasGrep.klarinett[valdTone]||[];
+  const tone=toneNamn[toneTilTal[valdTone]];
+  const wrap=document.createElement("div"); wrap.className="kl-wrap";
+  const topp=document.createElement("div"); topp.className="kl-topp";
+  topp.innerHTML="<div class='kl-instrument'>B♭-klarinett</div><div class='kl-tone'>"+tone+" – 1. oktav</div><div class='kl-sub'>skriven tone</div>";
   wrap.appendChild(topp);
+  const d=document.createElement("div"); d.className="kl-diagram";
+  const rail=document.createElement("div"); rail.className="kl-rail"; d.appendChild(rail);
+  d.appendChild(klarinettKlaff("th","tommel",aktive));
+  d.appendChild(klarinettKlaff("reg","register",aktive));
+  ["l1","l2","l3","r1","r2","r3"].forEach((id,i)=>d.appendChild(klarinettKlaff(id,"hole h"+(i+1),aktive)));
+  d.appendChild(klarinettKlaff("aKey","oval akey",aktive));
+  d.appendChild(klarinettKlaff("sideL","oval side-l",aktive));
+  d.appendChild(klarinettKlaff("sideR","oval side-r",aktive));
+  d.appendChild(klarinettKlaff("lpC","oval low-l1",aktive));
+  d.appendChild(klarinettKlaff("lp2","oval low-l2",aktive));
+  d.appendChild(klarinettKlaff("rp1","oval low-r1",aktive));
+  d.appendChild(klarinettKlaff("rp2","oval low-r2",aktive));
+  [1,2,3,4].forEach(i=>d.appendChild(klarinettKlaff("aux"+i,"oval aux a"+i,aktive)));
+  wrap.appendChild(d);
+  const f=document.createElement("div"); f.className="kl-forklaring";
+  f.innerHTML="<span class='kl-demo aktiv'></span> dekt / trykt &nbsp;&nbsp; <span class='kl-demo'></span> open";
+  wrap.appendChild(f); instrumentDiagram.appendChild(wrap);
+}
 
-  const diagram = document.createElement("div");
-  diagram.className = "tb-diagram " + instrument;
-
-  const kropp = document.createElement("div");
-  kropp.className = "tb-kropp";
-  diagram.appendChild(kropp);
-
-  // Tommel / register- eller oktavklaff til venstre.
-  const tommel = document.createElement("div");
-  tommel.className = "tb-side tb-side-venstre";
-  if (instrument === "saksofon") {
-    tommel.appendChild(treblasKnapp("oct", "O", aktive));
-  } else {
-    tommel.appendChild(treblasKnapp("th", "T", aktive));
-  }
-  tommel.appendChild(treblasKnapp("sideL", "", aktive));
-  diagram.appendChild(tommel);
-
-  // Hovudklaffar – same leseretning som i greptabellane.
-  const hovud = document.createElement("div");
-  hovud.className = "tb-hovud";
-
-  const venstreLabel = document.createElement("div");
-  venstreLabel.className = "tb-handlabel";
-  venstreLabel.textContent = "VENSTRE HAND";
-  hovud.appendChild(venstreLabel);
-
-  hovud.appendChild(treblasKnapp("l1", "", aktive));
-  hovud.appendChild(treblasKnapp("l2", "", aktive));
-  hovud.appendChild(treblasKnapp("l3", "", aktive));
-
-  const skilje = document.createElement("div");
-  skilje.className = "tb-skilje";
-  hovud.appendChild(skilje);
-
-  const hogreLabel = document.createElement("div");
-  hogreLabel.className = "tb-handlabel";
-  hogreLabel.textContent = "HØGRE HAND";
-  hovud.appendChild(hogreLabel);
-
-  hovud.appendChild(treblasKnapp("r1", "", aktive));
-  hovud.appendChild(treblasKnapp("r2", "", aktive));
-  hovud.appendChild(treblasKnapp("r3", "", aktive));
-
-  diagram.appendChild(hovud);
-
-  // Side-/lillefingerklaffar.
-  const side = document.createElement("div");
-  side.className = "tb-side tb-side-hogre";
-  side.appendChild(treblasKnapp("aKey", "", aktive));
-  side.appendChild(treblasKnapp("sideR", "", aktive));
-  side.appendChild(treblasKnapp("rp", "", aktive));
-  diagram.appendChild(side);
-
-  wrap.appendChild(diagram);
-
-  const forklaring = document.createElement("div");
-  forklaring.className = "tb-forklaring";
-  forklaring.innerHTML =
-    "<span class='tb-demo aktiv'></span> trykk/dekk &nbsp;&nbsp; " +
-    "<span class='tb-demo'></span> open";
-  wrap.appendChild(forklaring);
-
-  instrumentDiagram.appendChild(wrap);
+function lagTreblasDiagram(instrument,valdTone){
+  if(instrument==="klarinett"){lagKlarinettDiagram(valdTone);return;}
+  instrumentDiagram.innerHTML="";
+  const aktive=treblasGrep[instrument][valdTone]||[];
+  const tone=toneNamn[toneTilTal[valdTone]];
+  const namn={saksofon:"Altsaksofon i E♭",floyte:"Fløyte"};
+  const wrap=document.createElement("div");wrap.className="tb-wrap";
+  const topp=document.createElement("div");topp.className="tb-topp";
+  topp.innerHTML="<div class='tb-instrument'>"+namn[instrument]+"</div><div class='tb-tone'>"+tone+" – 1. oktav</div><div class='tb-sub'>skriven tone</div>";wrap.appendChild(topp);
+  const diagram=document.createElement("div");diagram.className="tb-diagram "+instrument;
+  const kropp=document.createElement("div");kropp.className="tb-kropp";diagram.appendChild(kropp);
+  const tommel=document.createElement("div");tommel.className="tb-side tb-side-venstre";
+  tommel.appendChild(treblasKnapp(instrument==="saksofon"?"oct":"th",instrument==="saksofon"?"O":"T",aktive));
+  tommel.appendChild(treblasKnapp("sideL","",aktive));diagram.appendChild(tommel);
+  const hovud=document.createElement("div");hovud.className="tb-hovud";
+  const vl=document.createElement("div");vl.className="tb-handlabel";vl.textContent="VENSTRE HAND";hovud.appendChild(vl);
+  ["l1","l2","l3"].forEach(id=>hovud.appendChild(treblasKnapp(id,"",aktive)));
+  const skilje=document.createElement("div");skilje.className="tb-skilje";hovud.appendChild(skilje);
+  const hl=document.createElement("div");hl.className="tb-handlabel";hl.textContent="HØGRE HAND";hovud.appendChild(hl);
+  ["r1","r2","r3"].forEach(id=>hovud.appendChild(treblasKnapp(id,"",aktive)));diagram.appendChild(hovud);
+  const side=document.createElement("div");side.className="tb-side tb-side-hogre";
+  ["aKey","sideR","rp"].forEach(id=>side.appendChild(treblasKnapp(id,"",aktive)));diagram.appendChild(side);
+  wrap.appendChild(diagram);instrumentDiagram.appendChild(wrap);
 }
 
 function oppdaterTreblas() {
-  let instrument = instrumentVeljar.value;
-  if (!treblasInstrument.includes(instrument)) return false;
-
-  // index.html brukar verdien "altsaks".
-  // Fingersettingsdataa heiter "saksofon", så vi koplar dei saman her.
-  if (instrument === "altsaks" || instrument === "altsaksofon") {
-    instrument = "saksofon";
-  }
-
-  const valdTone =
-    fingersettingModus === "tone"
-      ? fingersettingTone.value
-      : akkordGrunntone.value;
-
-  const namn = {
-    klarinett: "B♭-klarinett",
-    saksofon: "Altsaksofon",
-    floyte: "Fløyte"
-  };
-
-  fingersettingOverskrift.textContent =
-    namn[instrument] + " – " +
-    toneNamn[toneTilTal[valdTone]] + " – 1. oktav";
-
-  lagTreblasDiagram(instrument, valdTone);
-  return true;
+  return false;
 }
 
 
